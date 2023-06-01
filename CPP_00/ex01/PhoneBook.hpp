@@ -9,16 +9,16 @@ class PhoneBook
 {
 	public:
 		PhoneBook();
-		~PhoneBook();
+		// ~PhoneBook();
 		void	new_contact(std::string first_name, std::string last_name, std::string nickname, \
 		std::string phonenumber, std::string darkest_secret);
 		void	display_phonebook(void);
 		void	display_contact(int index);
 
 	private:
-		Contact	tableau[8];
-		int		nbr_contact;
-		int		older_contact;
+		Contact	m_tableau[8];
+		int		m_nbr_contact;
+		int		m_older_contact;
 };
 
 #endif

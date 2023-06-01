@@ -7,7 +7,8 @@ class Contact
 {
 	public:
 		Contact();
-		~Contact();
+		Contact(std::string first_name, std::string last_name, std::string nickname, \
+		std::string phonenumber, std::string darkest_secret);
 		void	display_contact(void);
 		void	display_resume(void);
 
