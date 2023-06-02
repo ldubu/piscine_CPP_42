@@ -14,7 +14,7 @@ static	std::string	ft_ask_info(std::string Message)
 	do
 	{
 		std::cout<<Message;
-		std::cin>>info;
+		std::getline(std::cin, info);
 	} while (info.empty());
 	return (info);
 }
@@ -27,27 +27,37 @@ static	void	ft_add(PhoneBook *Repertoire)
 	std::string numero;
 	std::string secret;
 	
-	std::cout<<"Ajout d'un nouveau contact dans votre PhoneBook5 !"<<std::endl;
-	prenom = ft_ask_info("Prenom: ");
-	nom = ft_ask_info("Nom de famille: ");
-	surnom = ft_ask_info("Surnom: ");
-	numero = ft_ask_info("Numero de telephone: "); 
-	secret = ft_ask_info("Plus sombre secret: "); 
+	std::cout<<"Adding a new contact in your PhoneBook5 !"<<std::endl;
+	prenom = ft_ask_info("First name: ");
+	nom = ft_ask_info("Last name: ");
+	surnom = ft_ask_info("Nickname: ");
+	numero = ft_ask_info("Phone number: "); 
+	secret = ft_ask_info("Darkest secret: "); 
 	
 	Repertoire->new_contact(prenom, nom, surnom, numero, secret);
 }
 
+static int	ft_found_index(std::string str)
+{
+	if (str.size() > 1)
+		return (-1);
+	else if (str[0] >= '0' && str[0] <= '7')
+		return (str[0] - 48);
+	else
+		return (-1);
+}
+
 static void	ft_search(PhoneBook *Repertoire)
 {
-	int	index = -1;
+	std::string	index;
 
 	Repertoire->display_phonebook();
 	do
 	{
-		std::cout<<"Quel contact souhaitez-vous affichez ? (Chiffre entre 0 et 7): ";
-		std::cin>>index;
-	} while (index < 0 && index > 7);
-	Repertoire->display_contact(index);
+		std::cout<<"Which contact do you want to display ? (Number between 0 and 7): ";
+		std::getline(std::cin, index);
+	} while (ft_found_index(index) == -1);
+	Repertoire->display_contact(ft_found_index(index));
 }
 
 int	main (void)
@@ -63,7 +73,7 @@ int	main (void)
 	do
 	{
 		std::cout<<"Enter your command: ";
-		std::cin>>usr_cmd;
+		std::getline(std::cin, usr_cmd);
 		if (!usr_cmd.compare("ADD"))
 			ft_add(&Repertoire);
 		else if (!usr_cmd.compare("SEARCH"))

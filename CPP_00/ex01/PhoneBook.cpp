@@ -1,12 +1,7 @@
 #include "main.hpp"
+#include <stdlib.h>
 
 PhoneBook::PhoneBook() : m_tableau(), m_nbr_contact(0), m_older_contact(0){}
-
-// PhoneBook::~PhoneBook()
-// {
-// 	for (int i = 0; i < PhoneBook::m_nbr_contact; i++)
-// 		~m_tableau[i]();
-// }
 
 void	PhoneBook::new_contact(std::string first_name, std::string last_name, std::string nickname, \
 		std::string phonenumber, std::string darkest_secret)
@@ -28,9 +23,10 @@ void	PhoneBook::new_contact(std::string first_name, std::string last_name, std::
 
 void	PhoneBook::display_phonebook(void)
 {
+	std::string number[8] = {"0", "1", "2", "3", "4", "5", "6", "7"};
 	for (int i = 0; i < PhoneBook::m_nbr_contact; i++)
 	{
-		display_resume_line("Contact " + std::string(i));
+		display_resume_line("Contact " + number[i]);
 		std::cout << "|";
 		m_tableau[i].display_resume();
 		std::cout << std::endl;
@@ -39,5 +35,9 @@ void	PhoneBook::display_phonebook(void)
 
 void	PhoneBook::display_contact(int index)
 {
-	m_tableau[index].display_contact();
+	std::cout << m_nbr_contact << " index = " << index << std::endl;
+	if (index > m_nbr_contact)
+		std::cout << "This contact didn't exist ! You're aren't very smart." << std::endl;
+	else
+		m_tableau[index].display_contact();
 }
