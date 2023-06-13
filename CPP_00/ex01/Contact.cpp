@@ -19,8 +19,6 @@ Contact::Contact(std::string first_name, std::string last_name, std::string nick
 	m_darkest_secret = darkest_secret;
 }
 
-// Contact::~Contact(){}
-
 static std::string	redux_str(std::string str)
 {
 	if (str.size() > 10)

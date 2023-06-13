@@ -74,6 +74,8 @@ int	main (void)
 	{
 		std::cout<<"Enter your command: ";
 		std::getline(std::cin, usr_cmd);
+		if (std::cin.eof())
+			break;
 		if (!usr_cmd.compare("ADD"))
 			ft_add(&Repertoire);
 		else if (!usr_cmd.compare("SEARCH"))
