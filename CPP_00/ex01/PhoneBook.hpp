@@ -9,7 +9,6 @@ class PhoneBook
 {
 	public:
 		PhoneBook();
-		// ~PhoneBook();
 		void	new_contact(std::string first_name, std::string last_name, std::string nickname, \
 		std::string phonenumber, std::string darkest_secret);
 		void	display_phonebook(void);

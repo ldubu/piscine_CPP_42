@@ -8,6 +8,8 @@ int	main(void)
 	Karen.complain("INFO");
 	Karen.complain("WARNING");
 	Karen.complain("ERROR");
+	Karen.complain("RIEN");
+	Karen.complain("");
 
 	return (0);
 }

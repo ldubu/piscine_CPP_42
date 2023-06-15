@@ -8,7 +8,7 @@ void	PhoneBook::new_contact(std::string first_name, std::string last_name, std::
 		{
 			int index;
 
-			if (m_nbr_contact == 7)
+			if (m_nbr_contact == 8)
 			{
 				index = m_older_contact;
 				m_older_contact = (m_older_contact + 1) %  7;
@@ -35,8 +35,7 @@ void	PhoneBook::display_phonebook(void)
 
 void	PhoneBook::display_contact(int index)
 {
-	std::cout << m_nbr_contact << " index = " << index << std::endl;
-	if (index > m_nbr_contact)
+	if (index >= m_nbr_contact)
 		std::cout << "This contact didn't exist ! You're aren't very smart." << std::endl;
 	else
 		m_tableau[index].display_contact();
